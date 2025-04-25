@@ -1,0 +1,11 @@
+{
+  "nome": "Lucas",
+  "idade": "21",
+  "cidade": "Fortaleza",
+  "programado": false,
+  "hobbies": ["academia","video gamer"],
+  "endereco": {
+    "rua": "rua06",
+    "bairro": "AltoAlegre"
+  }
+}
