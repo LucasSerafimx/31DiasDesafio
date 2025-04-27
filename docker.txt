@@ -1,0 +1,83 @@
+# COMANDO PARA CRIAR BANCO DE DADOS
+
+docker run --name desafio-postgres -e POSTGRES_PASSWORD=senha123 -p 5432:5432 -d postgres
+
+CREATE DATABASE desafio;
+
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    data_nascimento DATE
+);
+
+INSERT INTO usuarios (nome, email, data_nascimento)
+VALUES ('Lucas Serafim', 'lucas@email.com', '2003-07-13'),
+			 ('João Silva', 'joao@email.com', '1990-05-15'),
+       ('Maria Oliveira', 'maria@email.com', '1985-03-22');
+       
+SELECT * FROM usuarios;
+
+ALTER TABLE usuarios ADD telefone VARCHAR(15);
+
+DROP TABLE usuarios;
+
+DROP DATABASE usuarios;
+
+
+
+
+-----------------------
+
+CREATE DATABASE desafio;
+
+CREATE DATABASE empresa;
+
+CREATE TABLE funcionarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+  	cargo VARCHAR(100) NOT NULL,
+    salario INT NOT NULL,
+    data_admissao DATE
+);
+
+INSERT INTO funcionarios (nome, cargo, salario,data_admissao)
+VALUES ('Lucas Serafim','Analista de ti','3200', '2003-07-13'),
+			 ('Maria Eduarda','Aprendiz Financeiro','800', '2006-06-01'),
+       ('Maria Clara','Sem Emprego','10', '2014-07-24');
+       
+SELECT * FROM funcionarios;
+
+ALTER TABLE funcionarios ADD departamento VARCHAR(100);
+ALTER TABLE usuarios ADD telefone VARCHAR(15);
+DROP TABLE usuarios;
+
+-------------------------
+
+CREATE DATABASE crud;
+
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    idade INT
+);
+
+INSERT INTO usuarios (nome, email, idade)
+VALUES ('João Silva', 'joao@email.com', 30),
+       ('Maria Oliveira', 'maria@email.com', 28),
+       ('Pedro Santos', 'pedro@email.com', 35);
+       
+SELECT * FROM usuarios;
+
+UPDATE usuarios
+SET idade = 31
+WHERE id = 1;
+
+UPDATE usuarios
+SET email = 'novo@email.com'
+WHERE nome = 'Maria Oliveira';
+
+DELETE FROM usuarios WHERE id = 2;
+
+DELETE FROM usuarios;

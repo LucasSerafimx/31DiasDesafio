@@ -1,4 +1,5 @@
 const Usuario = require('./usuario');
+const {sequelize} = require('sequelize')
 
 async function criarUsuarios() {
   try {
